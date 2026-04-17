@@ -1,0 +1,355 @@
+:root {
+  --bg: #f6f3e7;
+  --surface: #fffdf8;
+  --surface-alt: #f2ece0;
+  --text: #1f2721;
+  --muted: #58655c;
+  --primary: #0f766e;
+  --primary-strong: #0a5a54;
+  --danger: #9f3a2e;
+  --accent: #c86b25;
+  --border: #d7ccb7;
+  --shadow: 0 16px 40px rgba(31, 39, 33, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 15% 20%, #fef3cf 0%, transparent 32%),
+    radial-gradient(circle at 85% 15%, #d6f3e4 0%, transparent 30%),
+    linear-gradient(140deg, #f4f0e6 0%, #ebe7da 55%, #e4dfcf 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bg-shape {
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(2px);
+  opacity: 0.48;
+  z-index: 0;
+}
+
+.bg-shape-one {
+  width: 260px;
+  height: 260px;
+  background: linear-gradient(120deg, #0f766e, #48a07d);
+  top: -70px;
+  right: -70px;
+}
+
+.bg-shape-two {
+  width: 220px;
+  height: 220px;
+  background: linear-gradient(130deg, #c86b25, #e5a15d);
+  left: -70px;
+  bottom: -70px;
+}
+
+.app-shell {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  margin-bottom: 1.25rem;
+  animation: rise-in 550ms ease-out both;
+}
+
+.eyebrow {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 0.45rem;
+}
+
+h1,
+h2 {
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.2;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(1.65rem, 3.2vw, 2.75rem);
+}
+
+h2 {
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+
+.hero-text {
+  color: var(--muted);
+  margin-top: 0.55rem;
+  max-width: 76ch;
+}
+
+.card {
+  background: color-mix(in srgb, var(--surface) 92%, white 8%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem;
+  margin-top: 1rem;
+  box-shadow: var(--shadow);
+  animation: rise-in 560ms ease-out both;
+}
+
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.student-row {
+  margin-top: 0.95rem;
+}
+
+.student-row label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+input,
+select {
+  width: 100%;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+  color: var(--text);
+}
+
+input:focus,
+select:focus,
+.btn:focus {
+  outline: 2px solid color-mix(in srgb, var(--primary) 60%, white 40%);
+  outline-offset: 2px;
+}
+
+.subjects-grid {
+  margin-top: 0.95rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.subject-row {
+  display: grid;
+  grid-template-columns: 2fr 1.25fr 1.1fr 1fr auto;
+  gap: 0.65rem;
+  align-items: end;
+  background: linear-gradient(180deg, #fff, #f6f0e4);
+  border: 1px solid #e0d6c3;
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+
+.subject-row label {
+  display: grid;
+  gap: 0.32rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 0.64rem 0.9rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 7px 14px rgba(15, 118, 110, 0.25);
+}
+
+.btn-soft {
+  background: #e2efe8;
+  color: #1c4a42;
+}
+
+.btn-danger,
+.btn-remove {
+  background: #f5ddd8;
+  color: #6b1c13;
+}
+
+.status-message {
+  min-height: 1.2em;
+  margin: 0.7rem 0 0;
+  color: var(--primary-strong);
+  font-weight: 500;
+}
+
+.hint {
+  margin: 0.45rem 0 0.8rem;
+  color: var(--muted);
+}
+
+.schedule-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.schedule-day {
+  border: 1px solid #dfd4bf;
+  background: #fffcf4;
+  border-radius: 12px;
+  padding: 0.7rem;
+}
+
+.schedule-day h3 {
+  margin: 0 0 0.52rem;
+  font-size: 1rem;
+  color: #244a41;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.task-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.3rem;
+  border-top: 1px dashed #ddcfb6;
+}
+
+.task-row:first-of-type {
+  border-top: 0;
+}
+
+.task-meta {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.task-complete {
+  text-decoration: line-through;
+  color: #6a756d;
+}
+
+.calendar-link {
+  font-size: 0.8rem;
+  color: #1f5d80;
+  text-decoration: none;
+  border-bottom: 1px dotted;
+}
+
+.progress-wrap {
+  margin-top: 0.8rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 14px;
+  border-radius: 999px;
+  border: 1px solid #b6c8bd;
+  background: #e5ece7;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #0f766e, #2ea272);
+  transition: width 240ms ease;
+}
+
+.subject-progress {
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.subject-progress-row {
+  border: 1px solid #d6ccb8;
+  background: #fffaf0;
+  border-radius: 10px;
+  padding: 0.55rem;
+}
+
+.subject-progress-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.reminder-list {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.reminder-item {
+  border-left: 4px solid var(--accent);
+  background: #fff4e9;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .subject-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .app-shell {
+    padding: 1.2rem 0.75rem 2.4rem;
+  }
+
+  .subject-row {
+    grid-template-columns: 1fr;
+  }
+
+  .task-row {
+    grid-template-columns: auto 1fr;
+  }
+}
