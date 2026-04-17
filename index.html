@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Study Planner for Students</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-shape bg-shape-one" aria-hidden="true"></div>
+  <div class="bg-shape bg-shape-two" aria-hidden="true"></div>
+
+  <main class="app-shell">
+    <header class="hero">
+      <p class="eyebrow">For schools and colleges</p>
+      <h1>AI Study Planner for Students</h1>
+      <p class="hero-text">
+        Add subjects and exam dates, then auto-build a smart study schedule with calendar support,
+        progress tracking, and reminders.
+      </p>
+    </header>
+
+    <section class="card" aria-labelledby="planner-title">
+      <div class="card-title-row">
+        <h2 id="planner-title">Plan Inputs</h2>
+        <button id="add-subject-btn" class="btn btn-soft" type="button">Add Subject</button>
+      </div>
+
+      <div class="student-row">
+        <label for="student-name">Student Name (optional)</label>
+        <input id="student-name" type="text" placeholder="e.g. Aanya" />
+      </div>
+
+      <div id="subjects-container" class="subjects-grid" aria-live="polite"></div>
+
+      <div class="actions">
+        <button id="generate-btn" class="btn btn-primary" type="button">Generate Smart Study Schedule</button>
+        <button id="reset-btn" class="btn btn-danger" type="button">Reset Plan</button>
+      </div>
+      <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="card" aria-labelledby="schedule-title">
+      <div class="card-title-row">
+        <h2 id="schedule-title">Smart Task Schedule</h2>
+        <button id="download-ics-btn" class="btn btn-soft" type="button">Export Calendar (.ics)</button>
+      </div>
+      <p class="hint">Mark tasks complete to update progress instantly.</p>
+      <div id="schedule-list" class="schedule-list"></div>
+    </section>
+
+    <section class="card" aria-labelledby="progress-title">
+      <h2 id="progress-title">Progress Tracking</h2>
+      <div class="progress-wrap">
+        <p id="overall-progress-text">No tasks yet.</p>
+        <div class="progress-bar" aria-hidden="true">
+          <div id="overall-progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+      <div id="subject-progress" class="subject-progress"></div>
+    </section>
+
+    <section class="card" aria-labelledby="reminder-title">
+      <div class="card-title-row">
+        <h2 id="reminder-title">Reminder Notifications</h2>
+        <button id="enable-reminders-btn" class="btn btn-soft" type="button">Enable Browser Reminders</button>
+      </div>
+      <p class="hint">Notifications appear for upcoming study tasks while this page is open.</p>
+      <div id="reminder-list" class="reminder-list"></div>
+    </section>
+  </main>
+
+  <template id="subject-template">
+    <article class="subject-row">
+      <label>
+        Subject
+        <input class="subject-name" type="text" placeholder="e.g. Physics" required />
+      </label>
+      <label>
+        Exam Date
+        <input class="subject-exam" type="date" required />
+      </label>
+      <label>
+        Target Study Hours
+        <input class="subject-hours" type="number" min="1" max="300" value="12" required />
+      </label>
+      <label>
+        Difficulty
+        <select class="subject-difficulty">
+          <option value="1">Easy</option>
+          <option value="2" selected>Medium</option>
+          <option value="3">Hard</option>
+        </select>
+      </label>
+      <button class="btn btn-remove remove-subject-btn" type="button">Remove</button>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
